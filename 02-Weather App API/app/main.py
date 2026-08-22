@@ -1,10 +1,13 @@
 from fastapi import FastAPI, Query, HTTPException
 import requests
-#from app.config import WEATHER_API_KEY
 from urllib.parse import quote
+from app.config import WEATHER_API_KEY
+
 app = FastAPI()
 
-API_KEY = "apikey"
+API_KEY = WEATHER_API_KEY
+
+
 
 @app.get('/weather')
 def get_weather(zip_code = Query("23607", examples=["23607"])):
